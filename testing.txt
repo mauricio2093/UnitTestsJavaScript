@@ -167,3 +167,9 @@ FAKER se usa la libreria fakejs  npm install @faker-js/faker --save-dev
 
 ------ Pruebas SUPERTEST de integracion test & e2e
 Se testean todos los componentes interactuando entre si
+
+------ Prueba UI TEST
+Uso de interfas grafica
+se usa Playwright  https://playwright.dev/
+
+-------GitHub Actions
