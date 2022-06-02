@@ -1,2 +1,2 @@
 # UnitTestsJavaScript
-Testing with JavaScript using Jess, eslint
+Testing with JavaScript using Jess, eslint, SUPERTEST
