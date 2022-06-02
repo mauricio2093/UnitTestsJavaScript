@@ -158,3 +158,12 @@ Doubles
 -Spies: Son como los stubs, pero se dejan espiar su comportamiento, comunicación e invocación.
 
 -Mocks: Stubs + Spies, pueden estar pre-programados para enviar las respuestas supuestas.
+
+
+Mocking suplantar un servidor y poner datos fake
+SPIES pruebas de caja blanca
+FAKER se usa la libreria fakejs  npm install @faker-js/faker --save-dev
+
+
+------ Pruebas SUPERTEST de integracion test & e2e
+Se testean todos los componentes interactuando entre si
