@@ -10,7 +10,7 @@ jest.mock('../src/lib/mongo.lib', () => jest.fn().mockImplementation(() => ({
   create: () => {},
 })));
 
-describe('Test For Hello Endpoint', () => {
+describe('Test For Books', () => {
   let app = null;
   let server = null;
   beforeAll(() => {
