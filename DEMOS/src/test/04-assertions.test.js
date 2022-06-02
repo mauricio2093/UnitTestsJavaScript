@@ -26,15 +26,10 @@ test('booleans', () => {
 });
 
 test('string', () => {
-  const data = true;
-  expect(data).toEqual(true);
-  expect(false).toEqual(false);
+  expect('Mauricio').toMatch(/Mau/);
+});
 
-  expect(0).toBeFalsy();
-  expect('').toBeFalsy();
-  expect(false).toBeFalsy();
-
-  expect(1).toBeTruthy();
-  expect('1').toBeTruthy();
-  expect(true).toBeTruthy();
+test('list / arrays', () => {
+  const numbers = [1, 3, 4, 5, 6];
+  expect(numbers).toContain(3);
 });

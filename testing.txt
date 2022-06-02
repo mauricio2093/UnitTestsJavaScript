@@ -1,0 +1,160 @@
+------------- Fases en el desarrollo de software-------------------------
+1 - Diseño
+2 - Desarrollo
+3 - Pruebas
+4 - Producción
+
+El encontrar los errores seran mas oportunos si se encuentran en las primeras fases y mas complicados de corregir si se encuentran en las ultimas fases.
+
+------------------  Como gestionar los riesgos segun Google: --------------------
+
+Analisis de codigo estatico: En el editor mientras se desarrolla.
+Pruebas unitarias: probar nuesto codigo con pruebas
+Pruebas de integración: como se combinan dos bloques o funcionalidades en conjunto despues de haber cumplido con su función en individual.
+Revision de codigo
+QA(Pruebas de testers): Pruebas automaticas o manuales
+
+---------------- Deuda Tecnica ------------------
+Al igual que con las deudas en la vida real, si se endeuda en este momento, puede obtener algo de mayor valor hoy y pagarlo con el tiempo.
+Esto significa que debe ver la deuda tecnológica como una palanca estratégica para el éxito de su organización a lo largo del tiempo.
+
+Para ver la deuda tecnológica como una palanca estratégica, debe:
+
+-Reconocer y trabajar con las suposiciones negativas sobre la deuda tecnológica
+-Clasificar y diferenciar los 6 tipos de deuda técnica
+-Dimensionar la deuda tecnológica
+-Cómo priorizar la deuda tecnológica (Dentro de la cartera más amplia de trabajo de productos y etapa de la empresa)
+https://www.reforge.com/blog/managing-tech-debt
+
+Igual que en las finanzas, las deudas no son buenas ni malas, solo son una estrategia para alcanzar algo y luego se paga.
+
+haciendo pruebas se maneja el
+riesgo
+
+Diseño
+Desarrollo
+Pruebas
+Producción
+El momento y pruebas dependen de la fase en la que se encuentra la compañía:
+
+Tracción
+Inflexión
+Escala
+Expansión
+La deuda de deficiencia del desarrollador puede ser alta porque en la fase de tracción, la compañía busca velocidad > precisión ,
+de modo que en esta etapa el testing no se valora, ya que buscan lanzar, lanzar, lanzar…
+
+Cuando se entra a la fase de inflexión, hay más usuarios y se empiezan a escribir más pruebas, curando la deuda.
+
+------------- Herramientas de Testing ----------------
+
+Estas herramientas mencionadas están clasificadas según el tipo o nivel de pruebas a realizar.
+
+Multipropósito o Robustas
+Pueden ejecutar la mayoría de pruebas de la pirámide o trofeo, tanto para backend, frontend, integration test, algunas hasta UI y API s testing.
+Jest, _Chai, Mocha, Ava, Jasmine _
+
+UI Testing
+Pruebas desplegadas en un dispositivo real o simulado bajo un Browser (navegador) automatizando toques y gestos en la aplicación.
+Playwright, _ Cypress, WebdriverIO, Puppeteer_
+
+API Testing
+En general, las APIs no tienen UI, usan protocolos de servicios por peticiones.
+Supertest, Dredd, Postman
+
+Pruebas Estáticas
+Estas pruebas no ejecutan el código, estas herramientas se integran al editor de código y van analizando si hay alguna mala práctica.
+ESLint, Prettier, Typescript tools (TSLint)
+
+*Todas estas herramientas manejan una sola estructura (de forma), de modo que el lenguaje o framework pasa a un segundo plano
+https://2021.stateofjs.com/en-US/libraries/testing/
+
+
+gitignore.io
+https://www.toptal.com/developers/gitignore/
+
+editor config
+https://github.com/airbnb/javascript/blob/master/.editorconfig
+
+
+------------------------------------------------------------
+beforeAll(): se ejecuta antes de todas las pruebas.
+beforeEach(): se ejecuta antes de cada prueba.
+afterEach(): se ejecuta después de cada prueba.
+afterAll(): se ejecuta después de todas las pruebas
+Nota:
+Todas estas funciones se ejecutan dentro del alcance del scope.
+
+------------------------Tipos de pruebas-----------------------
+
+Conceptos
+
+SUT (System Under Test): Sujeto Bajo Prueba, por ejemplo, Person sería nuestro SUT, no necesariamente tiene que ser un sistema.
+
+Validar: A la hora de validar resolvemos la siguiente pregunta: ¿estamos construyendo el sistema correcto?, por lo general, en la capa de requerimientos con el cliente y si le da valor a él.
+
+Verificar: Cuando ya se hacen pruebas, se verifica teniendo en mente la pregunta: ¿estamos construyendo el sistema correctamente? casi obviando que ya se produce valor al cliente.
+
+En todas las capas se pueden hacer pruebas, incluso sin código, como en los UML o en la revisión con el equipo de Scrum.
+.
+Tabla capas Vs detalle
+.
+
+Pruebas Funcionales
+Son las que validan que se cumplan los requerimientos de valor para el cliente (como guardar bien los buenos datos de un usuario); hasta este punto es lo que hemos hecho en VS code. Por norma general, las pruebas unitarias las entrega el desarrollador, el tester se empieza a involucrar en las pruebas de integración o E2E.
+
+Pruebas No Funcionales
+Verifican más el óptimo manejo de los recursos del software, no el cumplimiento de requisitos persé, como lo son pruebas de: +rendimiento +carga o estabilidad +estrés +usabilidad +seguridad. Estas pruebas no necesariamente deben estar desde el principio.
+
+.
+NOTA: HAy una nueva área de pruebas No Funcionales que se llama 🐒 Ingeniería del caos, 🐒 su pionero es Netflix. Consiste en desconectar servicios en producción, como por ejemplo, desconectar una BD para ver como reacciona el equipo y establecer soluciones.
+
+-----------------------------Metodologías-----------------------------------------
+
+-TDD (Test Driven Development): Desarrollo guiado por pruebas, donde primero se hacen las pruebas antes de escribir el código (primero los expects).
+
+-BDD (Behavior Driven Development): Desarrollo guiado por comportamiento de acuerdo a los requisitos y luego las pruebas.
+
+-AAA “Mantra” para hacer pruebas
+
+________ preparar Arrange | Given dado algo
+____________ ejecutar Act | When cuando
+resolver hipótesis Assert | Then entonces
+
+concepto Falso Positívo Cuando una prueba indica un error, pero todo está bien, por ejemplo, testeando el método suma de 1 +1 y pongo el expect en 5, es un falso positivo, luego la prueba está mal.
+
+c Falso Negativo Son más comunes, ya que parece que todo está normal, pero no se ha identificado el error, el set de pruebas debería ser más amplio;
+esto sucede cuando caemos en tan solo, probar el Happy Path, probar las condiciones en las que sabemos que el sistema funciona, por ejemplo, en el SUT de dividir las primeras pruebas salían bien porque no se tomó en cuenta la división entre cero 0, luego se hizo la prueba y el refactor. En caso de falso negativo lo mejor es aplicar TDD.
+
+c Sistema Legacy Son sistemas que te piden agregar pruebas a algo funcional, incluso en paralelo; hay que refactorizar los métodos enormes a pequeños para hacer unit test de pocos a muchos métodos; legacy no lleva una buena arquitectura.
+
+c Clean Architecture Este patrón lleva buenas prácticas desde el principio, cada método está bien dividido y con responsabilidades acertadas, es mucho más facil de agregar el set de pruebas.
+
+--------------------- Pruebas Unitarias (Aisladas)--------------------------------------
+Son las más comunes y se enfocan en probar unidades específicas, incluso conectando dependencias como
+BD o librerías emuladas (Dummies); se les conoce también como pruebas de estado o de caja negra,
+ya que solo importan las entradas y las salidas, en algunas ocasiones se hace con dependencias reales.
+
+Una unidad puede ser una función o un método o una clase, depende del paradigma usado en desarrollo
+(funcional o POO); una unidad debe tener solo una responsabilidad en específico.
+
+Una utilidad importante de las Unit Test es el Cover Report (reporte de cobertura)…
+
+------------------Reporte de Cobertura-----------------------------------
+
+Es una medida porcentual que indica cuanto falta probar del código que va a ir a producción,
+cuál ya está probado, cuál no se usa. ISO y la FAA exigen 100% de cobertura, pero en la realidad
+no es tan así, por ejemplo hacer test a setter y getters puede llegar a ser innecesario, este 100%
+no garantiza que aparezcan errores ni que sean el mejor set de pruebas.
+
+Doubles
+
+-Dummy: Son datos ficticios para llenar información.
+
+-Fake: Son objetos que simulan comportamientos o datos; como un usuario ficticio.
+
+-Stubs: Son proveedores o APIs de tatos preparados (BD Clima).
+
+-Spies: Son como los stubs, pero se dejan espiar su comportamiento, comunicación e invocación.
+
+-Mocks: Stubs + Spies, pueden estar pre-programados para enviar las respuestas supuestas.
