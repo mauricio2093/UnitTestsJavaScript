@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 14
           cache: 'npm'
-          cache-dependency-path: .\API\package-lock.json
+          cache-dependency-path: ./API/package-lock.json
       - name: install
         shell: bash
         run: npm ci
