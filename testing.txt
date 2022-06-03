@@ -172,4 +172,4 @@ Se testean todos los componentes interactuando entre si
 Uso de interfas grafica
 se usa Playwright  https://playwright.dev/
 
--------GitHub Actions
+------- GitHub Actions
